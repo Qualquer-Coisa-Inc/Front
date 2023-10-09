@@ -1,0 +1,44 @@
+.home{
+    background: url(../../img/mapa-mundo-isolado_98292-4295.avif);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .home_title{
+        font-size: 3.5rem;
+        margin: 9rem 0 3rem
+    }
+
+    .home_form{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .home_input{
+        width: 38rem;
+        height: 1.5rem;
+        position: absolute;
+        border-radius: 1rem;
+        padding-left: 1rem;
+
+    }
+
+    .home_btn_search{
+        position: absolute;
+        left: 16rem;
+        height: 1.9rem;
+        width: 5rem;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        font-weight: bold;
+    }
+}
