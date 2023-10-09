@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <Home/>,
   },
   {
-    path: "/details/:tdl",
+    path: "/details/:ccn",
     element: <Details/>,
   },
 ]);

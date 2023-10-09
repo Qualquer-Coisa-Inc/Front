@@ -6,7 +6,6 @@ import "./home.css";
 const Home = () => {
   const [country, setCountry] = useState([]);
   const [nameCountry, setNameCountry] = useState("");
-  // const [tld,setTld] = useState("");
 
   /**
    * muda o parametro para acessar uma busca especifica na API
@@ -16,18 +15,16 @@ const Home = () => {
     const { data } = await Search_Country.getCountries(nameCountry);
 
     setCountry(data[0]);
-    // setTld(data[0].tld[0])
   }
 
   useEffect(() => {
     searchCountry(nameCountry);
   }, [nameCountry]);
 
-  //  useEffect(() => {
-  //     console.log(country);
-  //     console.log(country.tld);
-  //     console.log(country.tld[0]);
-  //  });
+  useEffect(() => {
+    console.log(country);
+    console.log(country.cca3);
+  });
 
   /**
    * pega os dados do input e manda para NameCountry
@@ -48,11 +45,14 @@ const Home = () => {
       <section>
         <form onSubmit={handle} className="home_form">
           <input type="text" className="home_input" />
-          <Link to={`/details/${country.tld}`}>
-            <button className="home_btn_search">Buscar</button>
-          </Link>
+
+          <button className="home_btn_search">Buscar</button>
+          <Link to={`/details/${country}`}> </Link>
         </form>
       </section>
+      
+    
+  
     </main>
   );
 };
