@@ -1,13 +1,31 @@
-.detail{
-        background: url(../../img/mapa-mundo-isolado_98292-4295.avif);
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        /* filter: opacity(10%); */
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
+.detail {
+  background: url(../../img/mapa-mundo-isolado_98292-4295.svg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* filter: opacity(10%); */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #c6ac8f;
+  width: 10rem;
+}
+
+.btn:hover {
+  background-color: #5e503f;
+  transition: all 0.3s;
+  color: #fff;
 }

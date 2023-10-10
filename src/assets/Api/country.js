@@ -1,15 +1,12 @@
 import axios from "axios";
 
+const baseURL = 'https://backend-mocha-tau.vercel.app/';
+
+const withBaseURL = (path) => `${baseURL}${path}`
 
 
-const Base_url = 'https://backend-mocha-tau.vercel.app/';
-
-const url = (path) => `${Base_url}${path}`
-
-
-
-export class Search_Country{
-    static getCountries(name) {
-        return axios(url(`countries/${name}`));
-      };
+export class Country{
+    static async getCountries(name) {
+        return await axios(withBaseURL(`countries/${name}`));
+      }
 }
