@@ -1,0 +1,84 @@
+.card {
+  backdrop-filter: blur(5px);
+  color: #000000;
+  background-color: rgba(217,217,217, 0.75);
+  border-radius: 20px;
+  width: 450px;
+}
+
+.card_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1rem;
+}
+
+.card_field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px dashed #000;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  justify-content: space-between;
+}
+
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.languages-container span {
+  padding: 0.25rem 0.5rem;
+  background-color: #C6AC8F;
+  border-radius: 50px;
+}
+
+
+
+.card_title {
+  font-size: 1.5rem;
+  max-width: 300px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 1rem;
+}
+
+.card_img {
+  width: 150px;
+  height: 100px;
+  border-radius: 6px;
+}
+
+.card_details {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.card_details_btn {
+  padding: 0.8rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #C6AC8F;
+}
+
+
+.card_details_btn:hover {
+  background-color: #5E503F;
+  transition: all 0.3s;
+  color: #fff;
+}
+
+.card_details_a {
+  color: #000000;
+}
+.card_details_span {
+  font-size: 1rem;
+}

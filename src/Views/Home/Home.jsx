@@ -1,58 +1,76 @@
 import { useEffect, useState } from "react";
-import { Search_Country } from "../../assets/Api/country";
-import { Link } from "react-router-dom";
+import { Country } from "../../assets/Api/country";
+import Card from "../../Components/Card/Card";
 import "./home.css";
 
+
 const Home = () => {
-  const [country, setCountry] = useState([]);
   const [nameCountry, setNameCountry] = useState("");
-  // const [tld,setTld] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [countriesSearch, setCountriesSearch] = useState([]);
 
-  /**
-   * muda o parametro para acessar uma busca especifica na API
-   * @param {nameCountry} nameCountry
-   */
-  async function searchCountry(nameCountry) {
-    const { data } = await Search_Country.getCountries(nameCountry);
+  async function getCountriesData() {
+    const { data } = await Country.getCountries();
+    setCountries(data);
+  }
 
-    setCountry(data[0]);
-    // setTld(data[0].tld[0])
+  function getSearchedCountry(countryName) {
+    const lowerCaseCountry = countryName.toLowerCase();
+    const filteredCountries = countries.filter((country) => {
+      const commonName = country.translations.por.common.toLowerCase();
+      return commonName.includes(lowerCaseCountry);
+    })
+    
+    setCountriesSearch(filteredCountries);
+  }
+
+  function handleInputChange(e) {
+    setNameCountry(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if(nameCountry.trim().length > 0) {
+      getSearchedCountry(nameCountry);
+      setNameCountry("");
+    } else {
+      return;
+    }
   }
 
   useEffect(() => {
-    searchCountry(nameCountry);
-  }, [nameCountry]);
-
-  //  useEffect(() => {
-  //     console.log(country);
-  //     console.log(country.tld);
-  //     console.log(country.tld[0]);
-  //  });
-
-  /**
-   * pega os dados do input e manda para NameCountry
-   * @param {event} e
-   */
-  function handle(e) {
-    e.preventDefault();
-
-    const value = e.target[0].value;
-    setNameCountry(value);
-  }
+    getCountriesData();
+  }, [])
 
   return (
     <main className="home">
       <header>
-        <h1 className="home_title">Qual pais vc gostaria de conhecer?</h1>
+        <h1 className="home_title">Sobre qual país você gostaria de aprender mais?</h1>
       </header>
       <section>
-        <form onSubmit={handle} className="home_form">
-          <input type="text" className="home_input" />
-          <Link to={`/details/${country.tld}`}>
-            <button className="home_btn_search">Buscar</button>
-          </Link>
+        <form onSubmit={handleSubmit} className="home_form">
+          <input 
+            type="text" 
+            className="home_input" 
+            onChange={handleInputChange} 
+            autoComplete="off" 
+            translate="no" 
+            spellCheck="false"
+            value={nameCountry}
+            placeholder="Digite o nome de um país que deseja buscar"
+          />
+          <button type="submit" className="home_btn_search">Search</button>
         </form>
       </section>
+      <div className="cards_section">
+            {
+              countriesSearch.length > 0 ?
+                  countriesSearch.map((country) => {
+                    return <Card key={country.name} countryInfo={country}/>
+                  })
+              : null
+            }
+          </div>
     </main>
   );
 };
