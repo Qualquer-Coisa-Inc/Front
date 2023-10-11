@@ -1,17 +1,18 @@
 .card {
   backdrop-filter: blur(5px);
   color: #000000;
-  gap: 1rem;
   background-color: rgba(217,217,217, 0.75);
-  padding: 4rem;
+  padding: 1rem;
   border-radius: 20px;
+  height: 450px;
 }
 
 .card_wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  height: 100%;
 }
 
 .card_field {
@@ -33,23 +34,21 @@
 }
 
 .card_title {
-  margin-top: 1rem;
-  font-size: 4rem;
-  line-height: 1rem;
-  padding-bottom: 1rem;
+  font-size: 1.25rem;
+  text-wrap: break-word;
+  max-width: 200px;
+  text-align: center;
 }
 
 .card_img {
-  width: 18rem;
+  width: 150px;
+  max-height: 80px;
   border-radius: 6px;
 }
 
-.card_title__capital {
-  font-size: 1.5rem;
-}
-
 .card_details {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: bold;
 }
 
 .card_details_btn {
@@ -72,6 +71,5 @@
   color: #000000;
 }
 .card_details_span {
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  font-size: 1rem;
 }

@@ -1,12 +1,28 @@
-import { useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Country } from "../../assets/Api/country";
+import Card from "../../Components/Card/Card";
 import "./home.css";
 
 
 const Home = () => {
   const [nameCountry, setNameCountry] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [countriesSearch, setCountriesSearch] = useState([]);
 
-  const navigate = useNavigate();
+  async function getCountriesData() {
+    const { data } = await Country.getCountries();
+    setCountries(data);
+  }
+
+  function getSearchedCountry(countryName) {
+    const lowerCaseCountry = countryName.toLowerCase();
+    const filteredCountries = countries.filter((country) => {
+      const commonName = country.translations.por.common.toLowerCase();
+      return commonName.includes(lowerCaseCountry);
+    })
+    
+    setCountriesSearch(filteredCountries);
+  }
 
   function handleInputChange(e) {
     setNameCountry(e.target.value);
@@ -14,13 +30,17 @@ const Home = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    navigate(`/details/${nameCountry}`)
+    getSearchedCountry(nameCountry);
   }
+
+  useEffect(() => {
+    getCountriesData();
+  }, [])
 
   return (
     <main className="home">
       <header>
-        <h1 className="home_title">Which Country would you like to seek?</h1>
+        <h1 className="home_title">Sobre qual país você gostaria de aprender mais?</h1>
       </header>
       <section>
         <form onSubmit={handleSubmit} className="home_form">
@@ -32,11 +52,20 @@ const Home = () => {
             translate="no" 
             spellCheck="false"
             value={nameCountry}
-            placeholder="Type a Country's name here"
+            placeholder="Digite o nome de um país que deseja buscar"
           />
           <button type="submit" className="home_btn_search">Search</button>
         </form>
       </section>
+      <div className="cards_section">
+            {
+              countriesSearch.length > 0 ?
+                  countriesSearch.map((country) => {
+                    return <Card key={country.name} countryInfo={country}/>
+                  })
+              : null
+            }
+          </div>
     </main>
   );
 };

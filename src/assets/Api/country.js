@@ -6,7 +6,7 @@ const withBaseURL = (path) => `${baseURL}${path}`
 
 
 export class Country{
-    static async getCountries(name) {
-        return await axios(withBaseURL(`countries/${name}`));
+    static async getCountries() {
+        return await axios(withBaseURL(`countries`));
       }
 }

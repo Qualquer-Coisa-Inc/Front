@@ -3,8 +3,6 @@
 import './card.css'
 
 const Card = ({countryInfo}) => {
-  console.log(countryInfo);    
-
   const listLanguages = (object) => {
     if (object) {
       const languages = object;
@@ -47,29 +45,29 @@ const Card = ({countryInfo}) => {
   return (
     <div className='card'>
       <div className="card_wrapper">
-        <h1 className='card_title'>{countryInfo.altSpellings[1]}</h1>
-          <img className='card_img' src={countryInfo.flags.svg} alt={countryInfo.flags.svg.alt}/>
+        <h1 className='card_title'>{countryInfo.translations.por.common}</h1>
+          <img className='card_img' src={countryInfo.flags.svg} alt=""/>
         <div className='card_field'>
-          <h2 className='card_title__capital'>Capital:</h2>
-          <span className='card_details_span'>{countryInfo.capital[0]}</span>
+          <p className='card_details'>Capital:</p>
+          <span className='card_details_span'>{countryInfo.capital[0] ? countryInfo.capital[0] : ''}</span>
         </div>
         <div className='card_field'>
-          <h3 className='card_details'>Continent:</h3>
-          <span className='card_details_span'>{countryInfo.continents[0]}</span>
+          <p className='card_details'>Continent:</p>
+          <span className='card_details_span'>{countryInfo.continents[0] ? countryInfo.continents[0] : ''}</span>
         </div>
         <div className='card_field'>
-          <h3 className='card_details'>Languages:</h3>
+          <p className='card_details'>Languages:</p>
             {
               listLanguages(countryInfo.languages)
             }
         </div>
         <div className='card_field'>
-          <h3 className='card_details'>Population:</h3>
+          <p className='card_details'>Population:</p>
           <span className='card_details_span'>{Number(countryInfo.population).toLocaleString('pt-BR')}</span>
         </div>
         <div className='card_field'>
-          <h3 className='card_details'>Currency:</h3>
-          {listCurrencies(countryInfo.currencies) }
+          <p className='card_details'>Currency:</p>
+          {listCurrencies(countryInfo.currencies)}
         </div>
         <a href={countryInfo.maps.googleMaps} rel="noreferrer" className='card_details_a' target="_blank">
           <button className='card_details_btn'>Clique para ver o google map</button>
