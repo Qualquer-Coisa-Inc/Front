@@ -2,9 +2,8 @@
   backdrop-filter: blur(5px);
   color: #000000;
   background-color: rgba(217,217,217, 0.75);
-  padding: 1rem;
   border-radius: 20px;
-  height: 450px;
+  width: 450px;
 }
 
 .card_wrapper {
@@ -13,36 +12,46 @@
   align-items: center;
   gap: 1rem;
   height: 100%;
+  padding: 1rem;
 }
 
 .card_field {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border-bottom: 1px dashed #000;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  justify-content: space-between;
 }
 
 .languages-container {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.languages-container span::before {
-  content: ', ';
+.languages-container span {
+  padding: 0.25rem 0.5rem;
+  background-color: #C6AC8F;
+  border-radius: 50px;
 }
 
-.languages-container span:first-child::before {
-  content: '';
-}
+
 
 .card_title {
-  font-size: 1.25rem;
-  text-wrap: break-word;
-  max-width: 200px;
+  font-size: 1.5rem;
+  max-width: 300px;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 1rem;
 }
 
 .card_img {
   width: 150px;
-  max-height: 80px;
+  height: 100px;
   border-radius: 6px;
 }
 

@@ -30,7 +30,12 @@ const Home = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getSearchedCountry(nameCountry);
+    if(nameCountry.trim().length > 0) {
+      getSearchedCountry(nameCountry);
+      setNameCountry("");
+    } else {
+      return;
+    }
   }
 
   useEffect(() => {

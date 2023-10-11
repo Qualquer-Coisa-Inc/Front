@@ -52,25 +52,25 @@ const Card = ({countryInfo}) => {
           <span className='card_details_span'>{countryInfo.capital[0] ? countryInfo.capital[0] : ''}</span>
         </div>
         <div className='card_field'>
-          <p className='card_details'>Continent:</p>
+          <p className='card_details'>Continente:</p>
           <span className='card_details_span'>{countryInfo.continents[0] ? countryInfo.continents[0] : ''}</span>
         </div>
         <div className='card_field'>
-          <p className='card_details'>Languages:</p>
+          <p className='card_details'>Línguas:</p>
             {
               listLanguages(countryInfo.languages)
             }
         </div>
         <div className='card_field'>
-          <p className='card_details'>Population:</p>
+          <p className='card_details'>População:</p>
           <span className='card_details_span'>{Number(countryInfo.population).toLocaleString('pt-BR')}</span>
         </div>
         <div className='card_field'>
-          <p className='card_details'>Currency:</p>
+          <p className='card_details'>Moedas:</p>
           {listCurrencies(countryInfo.currencies)}
         </div>
         <a href={countryInfo.maps.googleMaps} rel="noreferrer" className='card_details_a' target="_blank">
-          <button className='card_details_btn'>Clique para ver o google map</button>
+          <button className='card_details_btn'>Ir para Google Map</button>
         </a>
       </div>
     </div>
