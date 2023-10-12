@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Country } from "../../assets/Api/country";
+import { Country } from "../../Api/country";
 import Card from "../../Components/Card/Card";
 import "./home.css";
 
@@ -45,7 +45,7 @@ const Home = () => {
   return (
     <main className="home">
       <header>
-        <h1 className="home_title">Sobre qual país você gostaria de aprender mais?</h1>
+        <h1 className="home_title">Pesquise um país!</h1>
       </header>
       <section>
         <form onSubmit={handleSubmit} className="home_form">
@@ -59,7 +59,7 @@ const Home = () => {
             value={nameCountry}
             placeholder="Digite o nome de um país que deseja buscar"
           />
-          <button type="submit" className="home_btn_search">Search</button>
+          <button type="submit" className="home_btn_search">Buscar</button>
         </form>
       </section>
       <div className="cards_section">

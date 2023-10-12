@@ -21,11 +21,11 @@
 }
 
 .home_input {
-  width: 38rem; 
+  width: 38rem;
   height: 3rem;
   border-radius: 6px;
   padding-left: 1rem;
-  outline: 1px solid #5E503F;
+  outline: 1px solid #5e503f;
   font-size: 1.5rem;
 }
 
@@ -33,26 +33,25 @@
   height: 3rem;
   padding-inline: 1rem;
   border-radius: 6px;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.25rem;
   text-transform: uppercase;
   border: 1px solid #303030;
   cursor: pointer;
-  background-color: #C6AC8F;
+  background-color: #c6ac8f;
 }
 
 .home_btn_search:hover {
-    background-color: #5E503F;
-    transition: all 0.3s;
-    color: #fff;
+  background-color: #5e503f;
+  transition: all 0.3s;
+  color: #fff;
 }
 
 .cards_section {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-top: 3rem;
+  padding: 2rem;
   justify-content: center;
 }
-
-
