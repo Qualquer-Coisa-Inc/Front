@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Country } from "../../Api/country";
+import { Country } from "../../api/country"
 import Card from "../../Components/Card/Card";
 import "./home.css";
 
